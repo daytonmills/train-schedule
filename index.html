@@ -30,6 +30,31 @@
                 </table>
             </div>
         </div>
+
+        <div class="card">
+            <div class="card-header">Add Train to Schedule</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="control-label" for="trainName">Train Name</label>
+                    <input class="form-control" id="trainName" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="trainDestination">Destination</label>
+                    <input class="form-control" id="trainDestination" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="trainTime">Train Time(HH:mm - 24/hour)</label>
+                    <input type="text" class="form-control" id="trainTime">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="trainFrequency">Frequency (min)</label>
+                    <input type="text" class="form-control" id="trainFrequency">
+                </div>
+                <div>
+                    <button class="btn btn-outline-dark" id="addTrain">Add Train</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
