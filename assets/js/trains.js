@@ -31,3 +31,20 @@ $("#addTrain").on("click", function ()
 
     schedule.ref().push(newTrain);
 });
+
+schedule.ref().on("child_added", function (data)
+{
+    var train = data.val();
+    var trainName = train.name;
+    var trainDestination = train.destination;
+    var trainTime = train.time;
+    var trainFrequency = train.frequency;
+
+    $("#trainList").append(
+        "<tr><td>"  + trainName +
+        "</td><td>" + trainDestination +
+        "</td><td>" + trainFrequency +
+        "</td><td>" + "Todo..." +
+        "</td><td>" + "Todo..." +
+        "</td></tr>");
+});
