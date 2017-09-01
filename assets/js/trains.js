@@ -39,12 +39,27 @@ schedule.ref().on("child_added", function (data)
     var trainDestination = train.destination;
     var trainTime = train.time;
     var trainFrequency = train.frequency;
+    var arrivals = getArrival(trainFrequency, trainTime);
 
     $("#trainList").append(
         "<tr><td>"  + trainName +
         "</td><td>" + trainDestination +
         "</td><td>" + trainFrequency +
-        "</td><td>" + "Todo..." +
-        "</td><td>" + "Todo..." +
+        "</td><td>" + arrivals.nextTrain +
+        "</td><td>" + arrivals.timeMins +
         "</td></tr>");
 });
+
+function getArrival(trainFrequency, trainTime)
+{
+    var firstTrain = moment(trainTime, "hh:mm");
+    var timeDiff = moment().diff(moment(firstTrain), "minutes");
+    var timeAway = timeDiff % trainFrequency;
+    var timeMins = trainFrequency - timeAway;
+    var nextTrain = moment(moment().add(timeMins, "minutes")).format("HH:mm");
+
+    return obj = {
+        timeMins: timeMins,
+        nextTrain: nextTrain
+    }
+}
